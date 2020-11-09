@@ -1,0 +1,32 @@
+Function KKHsum(rng)
+
+ 
+    OnTime = 0
+    come = 0
+    result = False
+
+    MySum = Application.WorksheetFunction.Sum(rng)
+
+    For Each c In rng
+
+   
+        
+        celldata = c.Value
+        
+        Sum = Sum + celldata
+
+        If celldata = True Then OnTime = OnTime + 1
+        If celldata > 0 Then come = come + 1
+        
+
+   
+
+    Next
+    If OnTime >= 4 Then MySum = MySum + 20
+    If come >= 5 Then MySum = MySum + 10
+
+    CheckValue = MySum
+
+ 
+
+End Function
