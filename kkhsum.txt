@@ -25,7 +25,7 @@ Function KKHsum(rng)
     If OnTime >= 4 Then MySum = MySum + 20
     If come >= 5 Then MySum = MySum + 10
 
-    CheckValue = MySum
+    KKHsum = MySum
 
  
 
