@@ -1,15 +1,18 @@
 Function kkhAmount(startTime, endTime)
+ 
+ 
+ MagicSpell = "ifistrue(" & Application.Caller.Offset(0, 1).Address(False, False) & ")"
+ If startTime >= 630 And startTime <= 635 Then
+   startTime = 630
+    Evaluate MagicSpell
+ End If
  sTimeMin = getMinFrTime(startTime)
  eTimeMin = getMinFrTime(endTime)
  minutes = eTimeMin - sTimeMin
  kkhAmount = CInt(minutes * 0.134)
  
  
- MagicSpell = "ifistrue(" & Application.Caller.Offset(0, 1).Address(False, False) & ")"
- If startTime >= 630 And startTime < 635 Then
-   
-    Evaluate MagicSpell
- End If
+ 
  
 End Function
 
