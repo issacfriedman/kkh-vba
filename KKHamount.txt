@@ -1,0 +1,35 @@
+Function kkhAmount(startTime, endTime)
+ sTimeMin = getMinFrTime(startTime)
+ eTimeMin = getMinFrTime(endTime)
+ minutes = eTimeMin - sTimeMin
+ kkhAmount = CInt(minutes * 0.134)
+ 
+ 
+ MagicSpell = "ifistrue(" & Application.Caller.Offset(0, 1).Address(False, False) & ")"
+ If startTime >= 630 And startTime < 635 Then
+   
+    Evaluate MagicSpell
+ End If
+ 
+End Function
+
+
+Function getMinFrTime(time)
+
+strTime = CStr(time)
+rightTime = Right(strTime, 2)
+leftTime = Left(strTime, 1)
+rightTimeInt = CInt(rightTime)
+leftTimeInt = CInt(leftTime)
+hours = leftTimeInt * 60
+minutes = hours + rightTimeInt
+
+
+getMinFrTime = minutes
+
+
+End Function
+
+Private Sub ifistrue(CellToChange As Range)
+    CellToChange = True
+End Sub
