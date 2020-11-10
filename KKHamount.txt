@@ -1,17 +1,34 @@
 Function kkhAmount(startTime, endTime)
- 
+ kStartTime = 630
+ kNotOnTime = 635
+ kEndTime = 745
+ payPerMinute = 0.134
  
  MagicSpell = "ifistrue(" & Application.Caller.Offset(0, 1).Address(False, False) & ")"
- If startTime >= 630 And startTime <= 635 Then
-   startTime = 630
+ boxrun1 = "boxrun()"
+ 
+ If startTime < kStartTime Or startTime > kEndTime Then
+   
+    Evaluate boxrun1
+ End If
+ 
+ If endTime < startTime Or endTime > kEndTime Then
+   
+    Evaluate boxrun1
+ End If
+ 
+ 
+ If startTime >= kStartTime And startTime <= kNotOnTime Then
+   startTime = kStartTime
     Evaluate MagicSpell
  End If
+ 
  sTimeMin = getMinFrTime(startTime)
  eTimeMin = getMinFrTime(endTime)
  minutes = eTimeMin - sTimeMin
- kkhAmount = CInt(minutes * 0.134)
+ kkhAmount = CInt(minutes * payPerMinute)
  
- 
+
  
  
 End Function
@@ -35,4 +52,11 @@ End Function
 
 Private Sub ifistrue(CellToChange As Range)
     CellToChange = True
+    
+    
+End Sub
+
+Private Sub boxrun()
+    MsgBox "most be between 630 and 745"
+    
 End Sub
